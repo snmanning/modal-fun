@@ -13,22 +13,22 @@ const modal = {
     this.modalContainer = document.querySelector('.modal-container');
     this.closeBtn = document.querySelector('.close');
     this.modalImage = document.querySelector('.modal-image');
-    this.thumbnails = document.querySelectorAll('.thumbnail');
     this.overlay = document.querySelector('.overlay');
+    this.imagesContainer = document.querySelector('.images');
   },
 
   bindEventListeners() {
     this.closeBtn.addEventListener('click', this.hideModal.bind(this));
     this.overlay.addEventListener('click', this.hideModal.bind(this));
-    this.thumbnails.forEach((thumbnail) => {
-      thumbnail.addEventListener('click', this.showModal.bind(this));
-    });
+    this.imagesContainer.addEventListener('click', this.showModal.bind(this));
   },
 
   showModal(evt) {
-    this.isHidden = false;
-    this.selectedImage = evt.target.src;
-    this.render();
+    if (evt.target.tagName === 'IMG') {
+      this.isHidden = false;
+      this.selectedImage = evt.target.src;
+      this.render();
+    }
   },
 
   hideModal() {
