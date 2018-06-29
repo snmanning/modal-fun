@@ -13,6 +13,7 @@
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    transition: opacity 1s, visibility 1s;
 }
 
 .images {
@@ -27,6 +28,7 @@
 
 .thumbnail {
     margin: 15px;
+    cursor: pointer;
 }
 
 .modal-container {
